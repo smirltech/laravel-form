@@ -9,21 +9,11 @@
     }
 @endphp
 @include('form::components.label')
-<textarea
-    @if($ckeditor) id="ckeditor" @endif {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
-{{$slot}}
-</textarea>
+<input accept="application/pdf"
+       type="file" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
+@include('form::components.upload-feedback')
 @include('form::components.footer')
-@if($ckeditor)
-    @push('js')
-        <script src="//cdn.ckeditor.com/4.14.1/{{$ckeditor}}/ckeditor.js"></script>
-        <script>
-            $(document).ready(function () {
-                CKEDITOR.replace('ckeditor');
-            });
-        </script>
-    @endpush
-@endif
+
 
 
 

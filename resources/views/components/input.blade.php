@@ -1,19 +1,15 @@
-@props(['disabled' => false,'isValid','label','error'])
+@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null])
 @php
-    if (isset($isValid )) {
-        $classes = ($isValid ===true)
-                    ? ' is-valid'
-                    : ' is-invalid';
+    if (isset($isValid) or $errors->has($attributes->wire('model')->value())) {
+       $classes = (($isValid ===false) or $errors->has($attributes->wire('model')->value()))
+                    ? ' is-invalid'
+                    : ' is-valid';
     } else {
         $classes = '';
     }
 @endphp
 @include('form::components.label')
-<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
-@if(isset($error))
-    <x-form::invalid-feedback>
-        {{$error}}
-    </x-form::invalid-feedback>
-@endif
+<input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control '.$classes]) !!}>
+@include('form::components.footer')
 
 

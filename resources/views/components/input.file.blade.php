@@ -8,11 +8,9 @@
         $classes = '';
     }
 @endphp
-@include('form::components.label')
-<select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
-    <option @if(!$selectPlaceholder) disabled @endif }}>{{$placeholder??'-- Sélectionner --'}}</option>
-    {{$slot}}
-</select>
+<input
+    type="file" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
+@include('form::components.upload-feedback')
 @include('form::components.footer')
 
 
