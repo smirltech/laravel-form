@@ -8,15 +8,15 @@
         $classes = '';
     }
 @endphp
-@include('components.form-label')
+@include('form::components.label')
 <select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
     <option @if(!$selectPlaceholder) disabled @endif }}>{{$placeholder??'-- Sélectionner --'}}</option>
     {{$slot}}
 </select>
 @if(isset($error))
-    <x-form-invalid-feedback>
+    <x-form::invalid-feedback>
         {{$error}}
-    </x-form-invalid-feedback>
+    </x-form::invalid-feedback>
 @endif
 
 

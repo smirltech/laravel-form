@@ -8,14 +8,14 @@
         $classes = '';
     }
 @endphp
-@include('components.form-label')
+@include('form::components.label')
 <input accept="application/pdf"
        type="file" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
-@include('components.form-upload-feedback')
+@include('form::components.upload-feedback')
 @if(isset($error))
-    <x-form-invalid-feedback>
+    <x-form::invalid-feedback>
         {{$error}}
-    </x-form-invalid-feedback>
+    </x-form::invalid-feedback>
 @endif
 
 
