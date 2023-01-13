@@ -1,4 +1,4 @@
-@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null])
+@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null,'ckeditor'=>null])
 @php
     if (isset($isValid) or $errors->has($attributes->wire('model')->value())) {
        $classes = (($isValid ===false) or $errors->has($attributes->wire('model')->value()))
@@ -9,6 +9,7 @@
     }
 @endphp
 @include('form::components.label')
+
 <textarea
     @if($ckeditor) id="ckeditor" @endif {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
 {{$slot}}
