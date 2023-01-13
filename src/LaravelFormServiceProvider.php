@@ -17,9 +17,9 @@ class LaravelFormServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-form')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-form_table')
-            ->hasCommand(LaravelFormCommand::class);
+            //->hasConfigFile()
+            ->hasViews();
+            //->hasMigration('create_laravel-form_table')
+            //->hasCommand(LaravelFormCommand::class);
     }
 }
