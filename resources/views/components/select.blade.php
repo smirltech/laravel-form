@@ -1,4 +1,4 @@
-@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null])
+@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null,'selectPlaceholder'=>null])
 @php
     if (isset($isValid) or $errors->has($attributes->wire('model')->value())) {
        $classes = (($isValid ===false) or $errors->has($attributes->wire('model')->value()))
