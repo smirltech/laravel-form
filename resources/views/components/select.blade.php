@@ -1,15 +1,14 @@
-@props(['disabled' => false,'isValid'=>null,'label','error','errors'=>null,'selectPlaceholder'=>null])
+@props(['label'])
 @php
-    if (isset($isValid) or $errors->has($attributes->wire('model')->value())) {
-       $classes = (($isValid ===false) or $errors->has($attributes->wire('model')->value()))
-                    ? ' is-invalid'
-                    : ' is-valid';
+    $error = $errors->has($attributes->wire('model')->value());
+    if ($error) {
+        $error_class = 'is-invalid';
     } else {
-        $classes = '';
+        $error_class = '';
     }
 @endphp
 @include('form::components.label')
-<select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control'.$classes]) !!}>
+<select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
     <option @if(!$selectPlaceholder) disabled @endif }}>{{$placeholder??'-- Sélectionner --'}}</option>
     {{$slot}}
 </select>

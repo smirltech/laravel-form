@@ -1,6 +1,6 @@
-@if(isset($error) or  isset($errors))
+@if($error)
     <x-form::invalid-feedback>
-        {{$error??$errors->first($attributes->wire('model')->value())}}
+        {{$error}}
     </x-form::invalid-feedback>
 @endif
 
