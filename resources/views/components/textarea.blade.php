@@ -1,9 +1,11 @@
 @props(['label'])
 @php
-    $error = $errors->has($attributes->wire('model')->value());
-    if ($error) {
+    $model = $attributes->wire('model')->value();
+    if ($errors->has($model)) {
+        $error = $errors->first($model);
         $error_class = 'is-invalid';
     } else {
+        $error = '';
         $error_class = '';
     }
 @endphp

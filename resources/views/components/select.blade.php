@@ -1,15 +1,19 @@
-@props(['label','selectPlaceholder' => true,'placeholder'=>'-- Sélectionner --'])
+@props(['label','placeholder' => true,'placeholderDisabled' => false,'placeholderText'=>'-- Sélectionner --'])
 @php
-    $error = $errors->has($attributes->wire('model')->value());
-    if ($error) {
+    $model = $attributes->wire('model')->value();
+    if ($errors->has($model)) {
+        $error = $errors->first($model);
         $error_class = 'is-invalid';
     } else {
+        $error = '';
         $error_class = '';
     }
 @endphp
 @include('form::components.label')
 <select {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
-    <option value="" @if(!$selectPlaceholder) disabled @endif }}>{{$placeholder}}</option>
+    @if($placeholder)
+        <option selected value="" @if(!$placeholderDisabled) disabled @endif }}>{{$placeholderText}}</option>
+    @endif
     {{$slot}}
 </select>
 @include('form::components.footer')
