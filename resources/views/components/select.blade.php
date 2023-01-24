@@ -12,7 +12,7 @@
 @include('form::components.label')
 <select {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
     @if($placeholder)
-        <option selected value="" @if(!$placeholderDisabled) disabled @endif }}>{{$placeholderText}}</option>
+        <option selected value="" @if($placeholderDisabled) disabled @endif }}>{{$placeholderText}}</option>
     @endif
     {{$slot}}
 </select>
