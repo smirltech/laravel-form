@@ -4,3 +4,4 @@
     type="file"
     {{ $attributes }}
 />
+@include('form::components.upload-feedback')
