@@ -1,6 +1,6 @@
 @props(['label'])
 @php
-    $model = $attributes->wire('model')->value();
+    $model = $attributes['name'] ?? $attributes->wire('model')->value();
     if ($errors->has($model)) {
         $error = $errors->first($model);
         $error_class = 'is-invalid';

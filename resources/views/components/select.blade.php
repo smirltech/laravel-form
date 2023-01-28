@@ -1,13 +1,13 @@
 @props(['label','placeholder' => true,'placeholderDisabled' => false,'placeholderText'=>'-- Sélectionner --'])
 @php
-    $model = $attributes->wire('model')->value();
-    if ($errors->has($model)) {
-        $error = $errors->first($model);
-        $error_class = 'is-invalid';
-    } else {
-        $error = '';
-        $error_class = '';
-    }
+    $model = $attributes['name'] ?? $attributes->wire('model')->value();
+   if ($errors->has($model)) {
+       $error = $errors->first($model);
+       $error_class = 'is-invalid';
+   } else {
+       $error = '';
+       $error_class = '';
+   }
 @endphp
 @include('form::components.label')
 <select {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
