@@ -1,4 +1,4 @@
-@props(['label','placeholder' => true,'placeholderDisabled' => false,'placeholderText'=>'-- Sélectionner --'])
+@props(['label'=>null,'placeholder' => true,'placeholderDisabled' => false,'placeholderText'=>'-- Sélectionner --'])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
    if ($errors->has($model)) {
