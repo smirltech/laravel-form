@@ -1,4 +1,4 @@
-@props(['label'])
+@props(['label'=>null])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
    if ($errors->has($model)) {

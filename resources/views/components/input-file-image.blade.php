@@ -1,7 +1,7 @@
 @php
     $model = $attributes->wire('model')->value();
 @endphp
-@props(['label',$model])
+@props(['label'=>null,$model])
 
 <x-form::input-file
     label="{{ $label }}"

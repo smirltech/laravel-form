@@ -1,4 +1,4 @@
-@props(['label','type'=>'basic'])
+@props(['label'=>null,'type'=>'basic'])
 <x-form::textarea
     id="ckeditor"
     label="{{ $label }}"

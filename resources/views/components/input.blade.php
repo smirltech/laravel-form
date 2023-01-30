@@ -1,8 +1,7 @@
-@props(['label'])
+@props(['label'=>null])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
-    if ($errors) {
-        dd($errors);
+    if ($errors->has($model)) {
         $error = $errors->first($model);
         $error_class = 'is-invalid';
     } else {
