@@ -1,18 +1,24 @@
-@props(['label'=>null,'placeholder' => null])
+@props(['label'=>null,'placeholder' => null,'multiple'=>false])
 @php
-    $model = $attributes['name'] ?? $attributes->wire('model')->value();
-   if ($errors->has($model)) {
-       $error = $errors->first($model);
-       $error_class = 'is-invalid';
-   } else {
-       $error = '';
-       $error_class = '';
-   }
+
+    if ($multiple) {
+      $attributes =  $attributes->merge(['multiple' => 'multiple']);
+    }
+         $model = $attributes['name'] ?? $attributes->wire('model')->value();
+        if ($errors->has($model)) {
+            $error = $errors->first($model);
+            $error_class = 'is-invalid';
+        } else {
+            $error = '';
+            $error_class = '';
+        }
 @endphp
 @include('form::components.label')
-<select {!! $attributes->merge(['class' => 'select2 form-control'.$error_class]) !!}>
+<span wire:ignore>
+<select {!! $attributes->merge(['class' => 'select2 form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
+</span>
 @include('form::components.footer')
 @push('js')
     <link rel="stylesheet"

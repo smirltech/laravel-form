@@ -1,11 +1,12 @@
 @php
     $model = $attributes->wire('model')->value();
 @endphp
-@props(['label'=>null,$model])
+@props(['label'=>null,$model=>null])
 
 <x-form::input-file
     label="{{ $label }}"
     accept="image/*"
+    class="form-control-file"
     {{ $attributes }}
 />
 
