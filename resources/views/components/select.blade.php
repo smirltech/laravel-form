@@ -5,6 +5,7 @@
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
     }
          $model = $attributes['name'] ?? $attributes->wire('model')->value();
+         $select_id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
         if ($errors->has($model)) {
             $error = $errors->first($model);
             $error_class = 'is-invalid';
@@ -15,7 +16,7 @@
 @endphp
 @include('form::components.label')
 {{--<span wire:ignore>--}}
-<select id="{{$model}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+<select id="{{$select_id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
 {{--</span>--}}
@@ -27,15 +28,15 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#{{$model}}').select2(
+            $('#{{$select_id}}').select2(
                 {
                     theme: 'bootstrap4',
                     placeholder: '{{$placeholder}}',
                     allowClear: true
                 }
             );
-            $('#{{$model}}').on('change', function (e) {
-                var data = $('#{{$model}}').select2("val");
+            $('#{{$select_id}}').on('change', function (e) {
+                var data = $('#{{$select_id}}').select2("val");
                 @this.
                 set('{{$model}}', data);
             });
