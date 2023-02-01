@@ -14,11 +14,9 @@
         }
 @endphp
 @include('form::components.label')
-<span wire:ignore>
 <select {!! $attributes->merge(['class' => 'select2 form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
-</span>
 @include('form::components.footer')
 @push('js')
     <link rel="stylesheet"
