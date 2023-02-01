@@ -14,9 +14,11 @@
         }
 @endphp
 @include('form::components.label')
-<select {!! $attributes->merge(['class' => 'select2 form-control form-select '.$error_class]) !!}>
+{{--<span wire:ignore>--}}
+<select id="{{$model}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
+{{--</span>--}}
 @include('form::components.footer')
 @push('js')
     <link rel="stylesheet"
@@ -25,13 +27,18 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('.select2').select2(
+            $('#{{$model}}').select2(
                 {
                     theme: 'bootstrap4',
                     placeholder: '{{$placeholder}}',
                     allowClear: true
                 }
             );
+            $('#{{$model}}').on('change', function (e) {
+                var data = $('#{{$model}}').select2("val");
+                @this.
+                set('{{$model}}', data);
+            });
         });
     </script>
 @endpush
