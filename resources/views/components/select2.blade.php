@@ -15,11 +15,11 @@
         }
 @endphp
 @include('form::components.label')
-{{--<span wire:ignore>--}}
+<span wire:ignore>
 <select id="{{$select_id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
-{{--</span>--}}
+</span>
 @include('form::components.footer')
 @push('js')
     <link rel="stylesheet"
