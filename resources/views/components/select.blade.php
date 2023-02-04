@@ -5,7 +5,7 @@
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
     }
          $model = $attributes['name'] ?? $attributes->wire('model')->value();
-         $select_id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
+         $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
         if ($errors->has($model)) {
             $error = $errors->first($model);
             $error_class = 'is-invalid';
@@ -16,7 +16,7 @@
 @endphp
 @include('form::components.label')
 <span wire:ignore>
-<select wire id="{{$select_id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+<select wire id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
     {{$slot}}
 </select>
 </span>
@@ -36,7 +36,7 @@
     <script>
         $(function () {
 
-            $("#{{$select_id}}").selectize({
+            $("#{{$id}}").selectize({
                 plugins: ["restore_on_backspace", "clear_button"],
                 delimiter: " - ",
                 persist: false,
