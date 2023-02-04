@@ -41,8 +41,10 @@
                 delimiter: " - ",
                 persist: false,
                 onChange: function (value) {
+                    @if($attributes->wire('model')->value())
                     @this.
                     set('{{$model}}', value);
+                    @endif
                 },
             });
 
