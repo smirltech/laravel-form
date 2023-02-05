@@ -1,5 +1,6 @@
-@props(['label'=>null,'placeholder' => null,'multiple'=>false,'allowClear'=>false])
+@props(['label'=>null,'placeholder' => null,'multiple'=>false,'allowClear'=>false,'prepend'=>null])
 @php
+
 
     if ($multiple) {
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
@@ -17,6 +18,7 @@
 @include('form::components.label')
 <span wire:ignore>
 <select wire id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+        <option value="">{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
     {{$slot}}
 </select>
 </span>
@@ -40,6 +42,11 @@
                 plugins: ["restore_on_backspace", "clear_button"],
                 delimiter: " - ",
                 persist: false,
+                hideSelected: true,
+                closeAfterSelect: true,
+                selectOnTab: true,
+                setFirstOptionActive: true,
+                showEmptyOptionInDropdown: true,
                 onChange: function (value) {
                     @if($attributes->wire('model')->value())
                     @this.
