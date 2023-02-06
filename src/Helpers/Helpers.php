@@ -9,8 +9,11 @@ use Illuminate\Support\Str;
 class Helpers
 {
 
-    public static function modelToFucntionName($value): string
+    public static function modelToFucntionName(?string $value): ?string
     {
+        if (is_null($value)) {
+            return null;
+        }
         return lcfirst(static::studly($value));
     }
 
