@@ -18,7 +18,7 @@
 @include('form::components.label')
 <span wire:ignore>
 <select wire id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
-        <option value="">{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
+        <option value=""></option>
     {{$slot}}
 </select>
 </span>
@@ -37,7 +37,6 @@
     ></script>
     <script>
         $(function () {
-
             $("#{{$id}}").selectize({
                 plugins: ["restore_on_backspace", "clear_button"],
                 delimiter: " - ",
@@ -46,7 +45,7 @@
                 closeAfterSelect: true,
                 selectOnTab: true,
                 setFirstOptionActive: true,
-                showEmptyOptionInDropdown: true,
+                placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
                 onChange: function (value) {
                     @if($attributes->wire('model')->value())
                     @this.
