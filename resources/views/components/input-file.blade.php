@@ -1,4 +1,4 @@
-@props(['label'=>null,'media'=>null,'deleteFiles'=>false])
+@props(['label'=>null,'media'=>null,'delete'=>false])
 <x-form::input
     label="{{ $label }}"
     type="file"
@@ -6,7 +6,7 @@
 />
 
 @if($media)
-    <x-form::list-files :media="$media" :delete="$deleteFiles"/>
+    <x-form::list-files :media="$media" :delete="$delete"/>
 @endif
 
 @include('form::components.upload-feedback')
