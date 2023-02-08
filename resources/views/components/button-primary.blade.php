@@ -1,4 +1,6 @@
-<x-form::button class="btn-primary">
+<x-form::button
+    {{ $attributes }}
+    class="btn-primary">
     {{$slot}}
 </x-form::button>
 
