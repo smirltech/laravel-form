@@ -17,13 +17,14 @@
 @endphp
 @include('form::components.label')
 <span wire:ignore>
-<select wire id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+<select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
         <option value=""></option>
     {{$slot}}
 </select>
 </span>
 @include('form::components.footer')
 @push('js')
+    /***- Start Selectize  #{{$id}} -***/
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.bootstrap5.css"
           integrity="sha512-pZE3NzBgokXUM9YLBGQIw99omcxiRdkMhZkz0o7g0VjC0tCFlBUqbcLKUuX8+jfsZgiZNIWFiLuZpLxXoxi53w=="
@@ -53,10 +54,9 @@
                     @endif
                 },
             });
-
         });
     </script>
+    /***- End Selectize  #{{$id}} -***/
 @endpush
-
 
 
