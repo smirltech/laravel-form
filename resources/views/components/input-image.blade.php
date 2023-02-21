@@ -1,7 +1,7 @@
 @php
     $model = $attributes->wire('model')->value();
 @endphp
-@props(['label'=>null,$model=>null])
+@props(['label'=>null,$model=>null,'height'=>null])
 
 <x-form::input-file
     label="{{ $label }}"
@@ -18,7 +18,8 @@
                     <div class="col-md-4">
                         <div class="thumbnail">
                             <a href="#">
-                                <img class="img-thumbnail" src="{{ $m?->temporaryUrl() }}"
+                                <img @if($height) style="height: {{$height}}px;width: auto" @endif class="img-thumbnail"
+                                     src="{{ $m?->temporaryUrl() }}"
                                      alt="Image 1">
                             </a>
                         </div>
@@ -26,7 +27,8 @@
                 @endforeach
             </div>
         @else
-            <img class="img-thumbnail" src="{{ $$model?->temporaryUrl() }}"
+            <img @if($height) style="height: {{$height}}px;width: auto" @endif class="img-thumbnail"
+                 src="{{ $$model?->temporaryUrl() }}"
                  alt="Image 1">
         @endif
     </div>
