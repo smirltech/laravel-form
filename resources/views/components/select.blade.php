@@ -1,7 +1,5 @@
-@props(['label'=>null,'placeholder' => null,'multiple'=>false,'allowClear'=>false,'prepend'=>null])
+@props(['label'=>null,'placeholder' => null,'multiple'=>false,'allowClear'=>false,'prepend'=>null,'refresh'=>false])
 @php
-
-
     if ($multiple) {
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
     }
@@ -16,47 +14,65 @@
         }
 @endphp
 @include('form::components.label')
-<span wire:ignore>
+@if($refresh)
+    <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+        {{$slot}}
+    </select>
+@else
+    <span wire:ignore>
 <select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
         <option value=""></option>
     {{$slot}}
 </select>
 </span>
+@endif
 @include('form::components.footer')
-@push('js')
-    <!-- Start Selectize  #{{$id}} -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.bootstrap5.css"
-          integrity="sha512-pZE3NzBgokXUM9YLBGQIw99omcxiRdkMhZkz0o7g0VjC0tCFlBUqbcLKUuX8+jfsZgiZNIWFiLuZpLxXoxi53w=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+@if(!$refresh)
+    @push('js')
+        <!-- Start Selectize  #{{$id}} -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.bootstrap5.css"
+              integrity="sha512-pZE3NzBgokXUM9YLBGQIw99omcxiRdkMhZkz0o7g0VjC0tCFlBUqbcLKUuX8+jfsZgiZNIWFiLuZpLxXoxi53w=="
+              crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
-        integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script>
-        $(function () {
-            $("#{{$id}}").selectize({
-                plugins: ["restore_on_backspace", "clear_button"],
-                delimiter: " - ",
-                persist: false,
-                hideSelected: true,
-                closeAfterSelect: true,
-                selectOnTab: true,
-                setFirstOptionActive: true,
-                placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
-                onChange: function (value) {
-                    @if($attributes->wire('model')->value())
-                    @this.
-                    set('{{$model}}', value);
-                    @endif
-                },
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+            integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script>
+            $(function () {
+                initSelectize({{$id}});
             });
-        });
-    </script>
-    <!-- End Selectize  #{{$id}} -->
-@endpush
+
+            function initSelectize(e) {
+                $(e).selectize({
+                    plugins: ["restore_on_backspace", "clear_button"],
+                    delimiter: " - ",
+                    persist: false,
+                    hideSelected: true,
+                    closeAfterSelect: true,
+                    selectOnTab: true,
+                    setFirstOptionActive: true,
+                    placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
+                    onChange: function (value) {
+                        @if($attributes->wire('model')->value())
+                        @this.
+                        set('{{$model}}', value);
+                        @endif
+                    },
+                });
+                console.log('initialized{{$id}}');
+
+            }
+
+            Livewire.on('refresh{{$id}}', function () {
+                initSelectize({{$id}});
+            });
+        </script>
+        <!-- End Selectize  #{{$id}} -->
+    @endpush
+@endif
 
 
