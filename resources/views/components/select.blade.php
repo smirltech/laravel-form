@@ -43,11 +43,7 @@
         ></script>
         <script>
             $(function () {
-                initSelectize({{$id}});
-            });
-
-            function initSelectize(e) {
-                $(e).selectize({
+                $("#{{$id}}").selectize({
                     plugins: ["restore_on_backspace", "clear_button"],
                     delimiter: " - ",
                     persist: false,
@@ -63,12 +59,6 @@
                         @endif
                     },
                 });
-                console.log('initialized{{$id}}');
-
-            }
-
-            Livewire.on('refresh{{$id}}', function () {
-                initSelectize({{$id}});
             });
         </script>
         <!-- End Selectize  #{{$id}} -->
