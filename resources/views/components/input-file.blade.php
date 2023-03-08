@@ -1,4 +1,4 @@
-@props(['label'=>null,'media'=>null,'delete'=>false])
+@props(['media'=>null,'delete'=>false])
 <x-form::input
     label="{{ $label }}"
     type="file"
