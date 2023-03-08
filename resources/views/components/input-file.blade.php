@@ -1,6 +1,5 @@
 @props(['media'=>null,'delete'=>false])
 <x-form::input
-    label="{{ $label }}"
     type="file"
     {{ $attributes }}
 />
