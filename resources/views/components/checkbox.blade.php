@@ -4,7 +4,7 @@
 @endphp
 @props(['label'=>null,'id'=>$id])
 <div class="form-check">
-    <input id="{{$id}}"
+    <input type="checkbox" id="{{$id}}"
            class="form-check-input"
         {{ $attributes }}>
     <label class="form-check-label"
