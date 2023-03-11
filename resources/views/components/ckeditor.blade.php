@@ -1,4 +1,4 @@
-@props(['label'=>null,'type'=>'classic'])
+@props(['type'=>'classic'])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
     $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);

@@ -1,7 +1,6 @@
-@props(['label'=>null])
+@props(['step'=>'0.01'])
 <x-form::input
-    label="{{ $label }}"
-    type="number" step="0.01"
+    type="number" step="{{ $step }}"
     {{ $attributes }}
 />
 
