@@ -7,7 +7,6 @@
 <span wire:ignore>
     <x-form::textarea
         id="{{$id}}"
-        label="{{ $label }}"
         {{ $attributes }}
     >
         {{$slot}}
