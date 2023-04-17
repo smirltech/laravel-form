@@ -1,4 +1,4 @@
-@props(['height' => 500])
+@props(['height' => 100])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
     $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
@@ -35,7 +35,5 @@
         height: {{$height}}px;
     }
 </style>
-
-
 
 

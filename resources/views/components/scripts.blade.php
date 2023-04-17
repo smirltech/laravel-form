@@ -9,9 +9,4 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
 ></script>
-<style>
-    .ck-editor__editable_inline {
-        min-height: 200px;
-    }
-</style>
 <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
