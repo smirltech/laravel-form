@@ -5,7 +5,7 @@
 />
 
 @if($media)
-    <x-form::list-files :media="$media" :delete="$delete"/>
+    <x-media::list :media="$media" :delete="$delete"/>
 @endif
 
 @include('form::components.upload-feedback')
