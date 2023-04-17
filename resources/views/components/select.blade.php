@@ -1,4 +1,12 @@
-@props(['label'=>null,'placeholder' => null,'multiple'=>false,'allowClear'=>false,'prepend'=>null,'refresh'=>false])
+@props([
+    'label'=>null,
+    'placeholder' => null,
+    'multiple'=>false,
+    'allowClear'=>false,
+    'prepend'=>null,
+    'refresh'=>false,
+    'options'=>null,
+    ])
 @php
     if ($multiple) {
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
@@ -16,13 +24,27 @@
 @include('form::components.label')
 @if($refresh)
     <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
-        {{$slot}}
+        @if($options)
+            @foreach($options as $option)
+                <option
+                    value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??'Option '.$loop->iteration}}</option>
+            @endforeach
+        @else
+            {{$slot}}
+        @endif
     </select>
 @else
     <span wire:ignore>
 <select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
         <option value=""></option>
-    {{$slot}}
+   @if($options)
+        @foreach($options as $option)
+            <option
+                value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??'Option '.$loop->iteration}}</option>
+        @endforeach
+    @else
+        {{$slot}}
+    @endif
 </select>
 </span>
 @endif
