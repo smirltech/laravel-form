@@ -4,7 +4,6 @@ namespace SmirlTech\LaravelForm;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use SmirlTech\LaravelForm\Commands\LaravelFormCommand;
 
 class LaravelFormServiceProvider extends PackageServiceProvider
 {
@@ -19,7 +18,7 @@ class LaravelFormServiceProvider extends PackageServiceProvider
             ->name('laravel-form')
             //->hasConfigFile()
             ->hasViews();
-            //->hasMigration('create_laravel-form_table')
-            //->hasCommand(LaravelFormCommand::class);
+        //->hasMigration('create_laravel-form_table')
+        //->hasCommand(LaravelFormCommand::class);
     }
 }
