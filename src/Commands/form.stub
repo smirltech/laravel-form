@@ -1,0 +1,15 @@
+<?php
+
+namespace [namespace];
+
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+
+class [class] extends FormComponent
+{
+
+    public function build(): void
+    {
+        $this->setPrimaryKey('id');
+    }
+}
