@@ -27,7 +27,7 @@
         @if($options)
             @foreach($options as $option)
                 <option
-                    value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??'Option '.$loop->iteration}}</option>
+                    value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??$option->id??'Option '.$loop->iteration}}</option>
             @endforeach
         @else
             {{$slot}}
@@ -40,7 +40,7 @@
    @if($options)
         @foreach($options as $option)
             <option
-                value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??'Option '.$loop->iteration}}</option>
+                value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??$option->id??'Option '.$loop->iteration}}</option>
         @endforeach
     @else
         {{$slot}}
