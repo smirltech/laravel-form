@@ -1,6 +1,6 @@
-@props(['disabled' => false,'icon'=>null,'label'=>null,'target'=>null])
+@props(['disabled' => false,'icon'=>null,'label'=>null,'target'=>null,'theme'=>'primary'])
 
-<button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'btn']) !!}>
+<button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'btn btn-'.$theme]) !!}>
     @if($icon)
         <i class="fa fa-{{$icon}}"></i>
     @endif

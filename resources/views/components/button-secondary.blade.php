@@ -1,6 +1,6 @@
 <x-form::button
     {{ $attributes }}
-    class="btn-secondary">
+    theme="secondary">
     {{$slot}}
 </x-form::button>
 
