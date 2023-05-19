@@ -9,11 +9,11 @@
        $error_class = '';
    }
 @endphp
-@include('form::components.label')
+@include('form::partials.label')
 <textarea  {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
 {{$slot}}
 </textarea>
-@include('form::components.footer')
+@include('form::partials.footer')
 
 
 
