@@ -25,11 +25,13 @@
 @include('form::partials.label')
 @if($refresh or $change)
     <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+        {{-- <option disabled value=null>{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>--}}
         @include('form::partials.select-options')
     </select>
 @else
     <span wire:ignore>
 <select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
+  <option value=""></option>
     @include('form::partials.select-options')
 </select>
 </span>
