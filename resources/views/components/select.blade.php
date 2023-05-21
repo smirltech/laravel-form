@@ -5,6 +5,7 @@
     'allowClear'=>false,
     'prepend'=>null,
     'refresh'=>false,
+     'change'=>false,
     'options'=>null,
     ])
 @php
@@ -22,7 +23,7 @@
         }
 @endphp
 @include('form::partials.label')
-@if($refresh)
+@if($refresh or $change)
     <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
         @include('form::partials.select-options')
     </select>
