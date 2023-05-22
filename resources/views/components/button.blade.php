@@ -5,7 +5,7 @@
         <i class="fa fa-{{$icon}}"></i>
     @endif
     {{ $label??$slot }}
-    @if($target)
+    @if($target and $attributes['type']=='submit')
         <x-form::loading target="{{$target}}"/>
     @endif
 </button>
