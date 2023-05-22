@@ -1,4 +1,4 @@
-@props(['disabled' => false,'icon'=>null,'label'=>null,'target'=>null,'theme'=>'primary'])
+@props(['disabled' => false,'icon'=>null,'label'=>null,'target'=>'submit','theme'=>'primary'])
 
 <button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => 'btn btn-'.$theme]) !!}>
     @if($icon)
