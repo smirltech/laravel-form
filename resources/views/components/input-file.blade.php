@@ -8,5 +8,5 @@
     <x-media::list :media="$media" :delete="$delete"/>
 @endif
 
-@include('form::components.upload-feedback')
+@include('form::partials.upload-feedback')
 

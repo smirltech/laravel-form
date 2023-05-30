@@ -10,7 +10,7 @@
     }
 
 @endphp
-@include('form::components.label')
+@include('form::partials.label')
 @if($prepend or $icon)
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -26,4 +26,4 @@
         @if($prepend or $icon)
     </div>
 @endif
-@include('form::components.footer')
+@include('form::partials.footer')

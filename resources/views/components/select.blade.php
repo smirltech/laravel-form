@@ -5,6 +5,7 @@
     'allowClear'=>false,
     'prepend'=>null,
     'refresh'=>false,
+     'change'=>false,
     'options'=>null,
     ])
 @php
@@ -21,30 +22,17 @@
             $error_class = '';
         }
 @endphp
-@include('form::components.label')
-@if($refresh)
+@include('form::partials.label')
+@if($refresh or $change)
     <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
-        @if($options)
-            @foreach($options as $option)
-                <option
-                    value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??$option->nom??$option->id??'Option '.$loop->iteration}}</option>
-            @endforeach
-        @else
-            {{$slot}}
-        @endif
+        <option disabled value=null>{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
+        @include('form::partials.select-options')
     </select>
 @else
     <span wire:ignore>
 <select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
-        <option value=""></option>
-   @if($options)
-        @foreach($options as $option)
-            <option
-                value="{{$option->value??$option->id??'option'.$loop->iteration}}">{{$option->label??$option->name??$option->nom??$option->id??'Option '.$loop->iteration}}</option>
-        @endforeach
-    @else
-        {{$slot}}
-    @endif
+  <option value=""></option>
+    @include('form::partials.select-options')
 </select>
 </span>
     <!-- Start Selectize  #{{$id}} -->
@@ -70,6 +58,6 @@
     </script>
     <!-- End Selectize  #{{$id}} -->
 @endif
-@include('form::components.footer')
+@include('form::partials.footer')
 
 
