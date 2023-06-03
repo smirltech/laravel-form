@@ -16,6 +16,7 @@
 
 @if($link)
     <a href="{{$link}}">
+        @endif
         <button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
             @if($icon)
                 <i class="fa fa-{{$icon}}"></i>
@@ -25,6 +26,7 @@
                 <x-form::loading target="{{$target}}"/>
             @endif
         </button>
+        @if($link)
     </a>
 @endif
 
