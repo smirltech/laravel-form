@@ -14,6 +14,9 @@ class Helpers
         if (is_null($value)) {
             return null;
         }
+
+        $value = trim(Str::replace(['[', ']'], ' ', $value));
+
         return lcfirst(static::studly($value));
     }
 
