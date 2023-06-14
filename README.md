@@ -30,6 +30,8 @@ composer require smirltech/laravel-form
 
 ## Usage
 
+Here are some examples of how to use the components.
+
 ### Input
 
 Use the `x-form::input` component to display a text input.
