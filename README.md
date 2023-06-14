@@ -14,7 +14,7 @@ Originally created for [Livewire](https://laravel-livewire.com) projects, but ca
 - Each component has a label, a name, and a value. You can pass the value as a model attribute or a value attribute.
 - Required fields are automatically detected and displayed with a red asterisk.
 - Errors are displayed automatically below the input if there is any.
-- The `select` uses a the [Selectize.js](https://selectize.github.io/selectize.js/) library to display a nice select
+- The `select` uses the [Selectize.js](https://selectize.github.io/selectize.js/) library to display a nice select
   input with search and multiple selection.
 - The `ckeditor` uses
   the [CKEditor 5](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/laravel.html)
