@@ -22,10 +22,17 @@ Originally created for [Livewire](https://laravel-livewire.com) projects, but ca
 
 ## Installation
 
-You can install the package via composer:
+Install the package via composer:
 
 ```bash
 composer require smirltech/laravel-form
+```
+
+Add `<x-form::scripts/>` component to your layout:
+
+```html
+....
+<x-form::scripts/>
 ```
 
 ## Usage
