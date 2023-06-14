@@ -10,20 +10,22 @@
     }
 
 @endphp
-@include('form::partials.label')
-@if($prepend or $icon)
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
+<div class="form-group">
+    @include('form::partials.label')
+    @if($prepend or $icon)
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
         <span class="input-group-text">
           @if($icon)
                 <i class="fas fa-{{$icon}}"></i>
             @endif{{$prepend}}
         </span>
-        </div>
+            </div>
 
-        @endif
-        <input {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
-        @if($prepend or $icon)
-    </div>
-@endif
+            @endif
+            <input {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
+            @if($prepend or $icon)
+        </div>
+    @endif
+</div>
 @include('form::partials.footer')

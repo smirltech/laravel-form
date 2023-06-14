@@ -1,6 +1,7 @@
-@props(['media'=>null,'delete'=>false])
+@props(['media'=>null,'delete'=>false,'icon'=>'upload'])
 <x-form::input
     type="file"
+    icon="{{ $icon }}"
     {{ $attributes }}
 />
 

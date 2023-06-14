@@ -1,20 +1,24 @@
-![Laravel Form](https://banners.beyondco.de/Laravel%20Form.png?theme=light&packageManager=composer+require&packageName=smirltech%2Flaravel-form&pattern=architect&style=style_1&description=A+bunch+of+form+input+components+ready+to+use&md=1&showWatermark=1&fontSize=100px&images=clipboard-list)
-# A bunch of form input components
+![Laravel Form](https://banners.beyondco.de/Laravel%20Form.png?theme=light&packageManager=composer+require&packageName=smirltech%2Flaravel-form&pattern=architect&style=style_1&description=A+bunch+of+form+components+ready+to+use&md=1&showWatermark=1&fontSize=100px&images=clipboard-list)
+
+# Laravel Form components
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/smirltech/laravel-form.svg?style=flat-square)](https://packagist.org/packages/smirltech/laravel-form)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/smirltech/laravel-form/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/smirltech/laravel-form/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/smirltech/laravel-form/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/smirltech/laravel-form/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/smirltech/laravel-form.svg?style=flat-square)](https://packagist.org/packages/smirltech/laravel-form)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This is a package that provides a bunch of form components ready to use in your Laravel application.
 
-## Support us
+Originally created for [Livewire](https://laravel-livewire.com) projects, but can be used in any Laravel project.
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-form.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-form)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+- The components are built using [Bootstrap 5](https://getbootstrap.com/docs/5.0/forms/overview/).
+- Each component has a label, a name, and a value. You can pass the value as a model attribute or a value attribute.
+- Required fields are automatically detected and displayed with a red asterisk.
+- Errors are displayed automatically below the input if there is any.
+- The `select` uses a the [Selectize.js](https://selectize.github.io/selectize.js/) library to display a nice select
+  input with search and multiple selection.
+- The `ckeditor` uses
+  the [CKEditor 5](https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/laravel.html)
+  library to display a nice WYSIWYG editor.
 
 ## Installation
 
@@ -24,61 +28,72 @@ You can install the package via composer:
 composer require smirltech/laravel-form
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-form-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="laravel-form-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-form-views"
-```
-
 ## Usage
 
-```php
-$laravelForm = new SmirlTech\LaravelForm();
-echo $laravelForm->echoPhrase('Hello, SmirlTech!');
+### Input
+
+Use the `x-form::input` component to display a text input.
+
+- `type` attribute to set the input type.
+- `placeholder` attribute to display a placeholder.
+- `required` attribute to set the input as required.
+- `wire:model` attribute to bind the input to a model attribute.
+- `name` attribute to set the input name.
+- `label` attribute to set the input label.
+
+```html
+
+<x-form::input label="Nom" required wire:model="hotel.name" name="name"/>
 ```
 
-## Testing
+![img_2.png](img_2.png)
 
-```bash
-composer test
+### Select
+
+use the `x-form::select` component to display a select input with options. you can pass the options as an array or a
+collection, or enums.
+
+- `multiple` attribute to allow multiple selection.
+- `placeholder` attribute to display a placeholder.'
+
+```html
+<!-- using model attribute -->
+<x-form::select label="Ville" wire:model="city" :options="$cities"/>
+
+<!-- using name -->
+<x-form::select label="Ville" name="city" :options="$cities"/>
+
+<!-- using foreach loop -->
+<x-form::select label="Ville" name="city">
+    @foreach($cities as $city)
+    <option value="{{$city->value}}">{{$city->name}}</option>
+    @endforeach
+</x-form::select>
 ```
 
-## Changelog
+![img.png](img.png)
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+### Ckeditor
+
+Use the `x-form::ckeditor` component to display a WYSIWYG editor.
+
+- `height` attribute to set the editor height.
+- `value` attribute to set the editor value.
+
+```html
+
+<x-form::ckeditor
+    label="Description"
+    height="200"
+    name="description"
+    value="Lorem ipsum dolor sit amet."/>
+```
+
+![img_1.png](img_1.png)
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
-## Credits
-
-- [Marien Mupenda](https://github.com/MarienMupenda)
-- [All Contributors](../../contributors)
+The package is still in development, so feel free to contribute.
 
 ## License
 

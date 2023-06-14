@@ -1,14 +1,15 @@
-@props(['height' => 200])
+@props(['height' => 200,'value'=>null])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
     $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
-
 @endphp
 <span wire:ignore>
     <x-form::textarea
         id="{{$id}}"
-        {{ $attributes }}
-    >
+        {{ $attributes }}>
+        @if($value)
+            {{$value}}
+        @endif
         {{$slot}}
     </x-form::textarea>
 </span>

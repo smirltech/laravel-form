@@ -6,6 +6,7 @@
 <x-form::input-file
     accept="image/*"
     class="form-control-file"
+    icon="image"
     {{ $attributes }}
 />
 
