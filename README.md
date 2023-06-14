@@ -91,6 +91,15 @@ Use the `x-form::ckeditor` component to display a WYSIWYG editor.
 
 ![img_1.png](img_1.png)
 
+### Input Excel
+
+```html 
+
+<x-form::input-xlsx label="Fichier" name="file"/>
+```
+
+![img_3.png](img_3.png)
+
 ## Contributing
 
 The package is still in development, so feel free to contribute.
