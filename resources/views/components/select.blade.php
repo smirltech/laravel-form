@@ -22,7 +22,7 @@
             $error_class = '';
         }
 @endphp
-<div class="form-group">
+<div class="form-group mb-3">
     @include('form::partials.label')
     @if($refresh or $change)
         <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
