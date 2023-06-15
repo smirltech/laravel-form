@@ -6,7 +6,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
-use SmirlTech\LaravelMedia\Models\Media;
 
 class FormComponent extends Component
 {
