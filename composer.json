@@ -4,7 +4,10 @@
     "keywords": [
         "SmirlTech",
         "laravel",
-        "laravel-form"
+        "laravel-form",
+        "form",
+        "form components",
+        "Livewire"
     ],
     "homepage": "https://github.com/smirltech/laravel-form",
     "license": "MIT",
