@@ -1,14 +1,14 @@
 @props(['label' => null, 'prepend' => null, 'icon' => null])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
-    if ($errors->has($model)) {
+    if (isset($errors) and $errors->has($model)) {
         $error = $errors->first($model);
         $error_class = 'is-invalid';
     } else {
         $error = '';
         $error_class = '';
     }
-    
+
 @endphp
 <div class="form-group">
     @include('form::partials.label')

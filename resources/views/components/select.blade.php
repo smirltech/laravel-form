@@ -14,7 +14,7 @@
     }
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
     $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
-    if ($errors->has($model)) {
+    if (isset($errors) and $errors->has($model)) {
         $error = $errors->first($model);
         $error_class = 'is-invalid';
     } else {
@@ -40,7 +40,7 @@
 
 <!-- Start Selectize  #{{ $id }} -->
 <script>
-    $(function() {
+    $(function () {
         $("#{{ $id }}").selectize({
             plugins: ["restore_on_backspace", "clear_button"],
             delimiter: " - ",
@@ -50,10 +50,10 @@
             selectOnTab: true,
             setFirstOptionActive: true,
             placeholder: '{{ $placeholder ?? (__('laravel-form.field.choice') . $label ?? '') }}',
-            onChange: function(value) {
+            onChange: function (value) {
                 @if ($attributes->wire('model')->value())
-                    @this.
-                    set('{{ $model }}', value);
+                @this.
+                set('{{ $model }}', value);
                 @endif
             },
         });
