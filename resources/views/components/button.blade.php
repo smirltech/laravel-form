@@ -19,10 +19,10 @@
         @endif
         <button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
             @if($icon)
-                <i class="fa fa-{{$icon}}"></i>
+                <i wire:loading.remove class="fa fa-{{$icon}}"></i>
             @endif
-            {{ $label??$slot }}
-            @if($target and $attributes['type']=='submit')
+            <span wire:loading.remove>{{ $label??$slot }}</span>
+            @if($target)
                 <x-form::loading target="{{$target}}"/>
             @endif
         </button>
