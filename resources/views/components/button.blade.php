@@ -2,6 +2,7 @@
     'disabled' => false,
     'icon'=>null,
     'label'=>null,
+    'type'=>'button',
     'target'=>'submit',
     'theme'=>'primary',
     'link'=>null,
@@ -17,7 +18,8 @@
 @if($link)
     <a href="{{$link}}">
         @endif
-        <button {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
+        <button
+            type="{{$type}}" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
             @if($icon)
                 <i wire:loading.remove wire:target="{{$target}}" class="fa fa-{{$icon}}"></i>
             @endif

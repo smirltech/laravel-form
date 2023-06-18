@@ -24,8 +24,8 @@
 
             @endif
             <input {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
+            @include('form::partials.footer')
             @if($prepend or $icon)
         </div>
     @endif
-    @include('form::partials.footer')
 </div>
