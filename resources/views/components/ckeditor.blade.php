@@ -8,7 +8,7 @@
         id="{{$id}}"
         {{ $attributes }}>
         @if($value)
-            {{$value}}
+            {!!$value!!}
         @endif
         {{$slot}}
     </x-form::textarea>
@@ -36,5 +36,3 @@
         height: {{$height}}px;
     }
 </style>
-
-
