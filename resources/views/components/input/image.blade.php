@@ -3,7 +3,7 @@
 @endphp
 @props([$model => null, 'height' => null])
 
-<x-form::input-file accept="image/*" class="form-control-file" icon="image" {{ $attributes }} />
+<x-form::input.file accept="image/*" class="form-control-file" icon="image" {{ $attributes }} />
 
 @if ($$model)
     <div class="mt-3">
@@ -14,7 +14,7 @@
                         <div class="thumbnail">
                             <a href="#">
                                 <img @if ($height) style="height: {{ $height }}px;width: auto" @endif
-                                    class="img-thumbnail" src="{{ $m?->temporaryUrl() }}" alt="Image 1">
+                                class="img-thumbnail" src="{{ $m?->temporaryUrl() }}" alt="Image 1">
                             </a>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
             </div>
         @else
             <img @if ($height) style="height: {{ $height }}px;width: auto" @endif
-                class="img-thumbnail" src="{{ $$model?->temporaryUrl() }}" alt="Image 1">
+            class="img-thumbnail" src="{{ $$model?->temporaryUrl() }}" alt="Image 1">
         @endif
     </div>
 @endif
