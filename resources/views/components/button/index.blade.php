@@ -44,7 +44,6 @@
 <button
     type="{{ $type }}"
     {{ $attributes->merge(['class' => "btn btn$outlinedPrefix-$theme $btnSize"]) }}
-    @disabled($disabled)
->
+    @disabled($disabled)>
     {{ $slot }}
 </button>
