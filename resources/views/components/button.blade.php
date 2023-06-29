@@ -13,7 +13,13 @@
 @if($sm)
     @php($size='sm')
 @endif
+@if($type=='submit' and !$target)
+    @php($target='submit')
+@endif
 
+@if($attributes->has('wire:click') and !$target)
+    @php($target=$attributes->get('wire:click'))
+@endif
 
 @if($link)
     <a href="{{$link}}">

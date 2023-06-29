@@ -29,6 +29,7 @@
             <option disabled value=null>{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
             @include('form::partials.select-options')
         </select>
+        @include('form::partials.footer')
     @else
         <span wire:ignore>
 <select id="{{$id}}" {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
@@ -36,6 +37,7 @@
     @include('form::partials.select-options')
 </select>
 </span>
+        @include('form::partials.footer')
 </div>
 
 <!-- Start Selectize  #{{$id}} -->
@@ -61,6 +63,3 @@
 </script>
 <!-- End Selectize  #{{$id}} -->
 @endif
-@include('form::partials.footer')
-
-
