@@ -1,5 +1,9 @@
 @props([
     /**
+    * The label of the button.
+    */
+  'label'=>null,
+    /**
      * Le type de bouton, peut etre une chaine compatible avec l`attribut `type` de HTMLButtonElement
      * Les valeurs possibles sont : `submit`, `button`, `reset`, `menu`.
      * Par défaut, la valeur est "button".
@@ -34,16 +38,38 @@
      * {@see https://getbootstrap.com/docs/5.3/components/buttons/#outline-buttons}
      */
     'outlined' => false,
+
+      /**
+     *  Indicate if the button as a fontawesome icon
+     * {@see https://fontawesome.com}
+     */
+    'icon'=>null,
+    'target'=>'submit',
+    'link'=>null,
+    'sm'=>false,
 ])
+
+@if($sm)
+    @php($size='sm')
+@endif
 
 @php
     $btnSize = $size ? 'btn-' . $size : '';
     $outlinedPrefix = $outlined ? '-outline' : '';
 @endphp
 
-<button
-    type="{{ $type }}"
-    {{ $attributes->merge(['class' => "btn btn$outlinedPrefix-$theme $btnSize"]) }}
-    @disabled($disabled)>
-    {{ $slot }}
-</button>
+
+@if($link)
+    <a href="{{$link}}">
+        @endif
+        <button
+            type="{{$type}}" @disabled($disabled) {!! $attributes->merge(['class' => "btn btnbtn$outlinedPrefix-{$theme} {$btnSize}"]) !!}>
+            @if($icon)
+                <i wire:loading.remove wire:target="{{$target}}" class="fa fa-{{$icon}}"></i>
+            @endif
+            <span wire:loading.remove wire:target="{{$target}}">{{ $label??$slot }}</span>
+            <x-form::loading target="{{$target}}"/>
+        </button>
+        @if($link)
+    </a>
+@endif
