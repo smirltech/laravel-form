@@ -3,7 +3,7 @@
     'icon'=>null,
     'label'=>null,
     'type'=>'button',
-    'target'=>'submit',
+    'target'=>null,
     'theme'=>'primary',
     'link'=>null,
     'size'=>'md',
