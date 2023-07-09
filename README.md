@@ -104,7 +104,7 @@ Use the `x-form::ckeditor` component to display a WYSIWYG editor.
 
 ```html 
 
-<x-form::input-xlsx label="Fichier" name="file"/>
+<x-form::input.xlsx label="Fichier" name="file"/>
 ```
 
 ![img_3.png](img_3.png)
