@@ -23,7 +23,7 @@
             editor.model.document.on('change:data', () => {
                 @if($attributes->wire('model')->value())
                 @this.
-                set('{{$model}}', editor.getData());
+                set('{{$model}}', editor.getData())
                 @endif
             })
         })
