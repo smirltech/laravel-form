@@ -16,8 +16,7 @@
     failOnRisky="true"
     failOnEmptyTestSuite="true"
     beStrictAboutOutputDuringTests="true"
-    verbose="true"
->
+    verbose="true">
     <testsuites>
         <testsuite name="SmirlTech Test Suite">
             <directory>tests</directory>
