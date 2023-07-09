@@ -1,6 +1,6 @@
 <?php
 
-namespace SmirlTech\LaravelForm\form;
+namespace SmirlTech\LaravelForm\Form;
 
 /**
  * @property array $inputs

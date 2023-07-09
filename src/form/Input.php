@@ -1,6 +1,6 @@
 <?php
 
-namespace SmirlTech\LaravelForm\form;
+namespace SmirlTech\LaravelForm\Form;
 
 class Input
 {
@@ -12,7 +12,8 @@ class Input
         private readonly ?string $prepend = null,
         private readonly ?string $icon = null,
         private readonly ?string $placeholder = null,
-        private readonly ?bool   $required = false)
+        private readonly ?bool   $required = false
+    )
     {
     }
 

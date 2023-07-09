@@ -10,6 +10,3 @@
            for="{{$id}}">{{$label}}
     </label>
 </div>
-
-
-

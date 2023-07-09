@@ -11,6 +11,6 @@ class LaravelForm extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \SmirlTech\LaravelForm\LaravelForm::class;
+        return self::class;
     }
 }
