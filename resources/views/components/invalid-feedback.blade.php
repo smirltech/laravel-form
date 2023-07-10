@@ -1,3 +1,3 @@
-<div class="invalid-feedback">
+<div class="text-danger text-sm">
     {{ $slot }}
 </div>
