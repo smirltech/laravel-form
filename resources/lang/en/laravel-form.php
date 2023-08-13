@@ -1,6 +1,6 @@
 <?php
 return [
-    'field.required' => 'Ce champ est obligatoire',
-    'field.choice' => 'Choisir',
-    'uploading' => 'Telechargement en cours...',
+    'field.required' => 'This field is required',
+    'field.choice' => 'Choose',
+    'uploading' => 'Uploading...',
 ];
