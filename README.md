@@ -28,11 +28,17 @@ Install the package via composer:
 composer require smirltech/laravel-form
 ```
 
-Add `<x-form::scripts/>` component to your layout:
+Add `<x-form::scripts/>` and [Jquery](https://releases.jquery.com/) to your layout file:
 
 ```html
+<head>
+    ....
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
 ....
 <x-form::scripts/>
+</body>
 ```
 
 ## Usage
