@@ -8,7 +8,7 @@
         id="{{$id}}"
         {{ $attributes }}>
         @if($value)
-            {{$value}}
+            {!!$value!!}
         @endif
         {{$slot}}
     </x-form::textarea>
@@ -23,7 +23,7 @@
             editor.model.document.on('change:data', () => {
                 @if($attributes->wire('model')->value())
                 @this.
-                set('{{$model}}', editor.getData());
+                set('{{$model}}', editor.getData())
                 @endif
             })
         })
@@ -36,5 +36,3 @@
         height: {{$height}}px;
     }
 </style>
-
-

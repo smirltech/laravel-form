@@ -1,3 +1,3 @@
-<div class="valid-feedback" wire:loading wire:target="{{$attributes->wire('model')->value()}}">
-    Telechargement en cours...
+<div class="valid-feedback" wire:loading wire:target="{{ $attributes->wire('model')->value() }}">
+    {{ __('form::laravel-form.uploading')  }}
 </div>
