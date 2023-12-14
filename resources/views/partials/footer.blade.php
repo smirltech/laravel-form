@@ -1,5 +1,6 @@
 <x-form::invalid-feedback>
-    {{$error}}
+    <div>
+        {{$error}}
+    </div>
 </x-form::invalid-feedback>
-
 
