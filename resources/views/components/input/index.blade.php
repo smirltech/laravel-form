@@ -22,17 +22,16 @@
             @endif{{$prepend}}
         </span>
             </div>
-        </div>
-    @endif
-    <input list="{{$id}}-list" {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
-    @include('form::partials.footer')
+            @endif
+            <input list="{{$id}}-list" {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
+            @include('form::partials.footer')
 
-    @if($datalist)
-        <datalist id="{{$id}}-list">
-            @include('form::partials.datalist')
-        </datalist>
-    @endif
-    @if($prepend or $icon)
-    </div>
+            @if($datalist)
+                <datalist id="{{$id}}-list">
+                    @include('form::partials.datalist')
+                </datalist>
+            @endif
+            @if($prepend or $icon)
+        </div>
     @endif
 </div>
