@@ -13,7 +13,7 @@
       $attributes =  $attributes->merge(['multiple' => 'multiple']);
     }
          $model = $attributes['name'] ?? $attributes->wire('model')->value();
-         $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
+         $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model).'-'.rand(1000,9999);
         if ($errors->has($model)) {
             $error = $errors->first($model);
             $error_class = 'is-invalid';

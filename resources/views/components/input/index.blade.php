@@ -1,4 +1,4 @@
-@props(['label'=>null,'prepend'=>null,'icon'=>null,'datalist'=>null])
+@props(['label'=>null,'prepend'=>null,'icon'=>null,'datalist'=>null,'readonly'=>false])
 @php
     $model = $attributes['name'] ?? $attributes->wire('model')->value();
     $id = SmirlTech\LaravelForm\Helpers\Helpers::modelToFucntionName($model);
@@ -23,9 +23,7 @@
         </span>
             </div>
             @endif
-            <input list="{{$id}}-list" {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
-            @include('form::partials.footer')
-
+            <input @if($readonly) readonly @endif list="{{$id}}-list" {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
             @if($datalist)
                 <datalist id="{{$id}}-list">
                     @include('form::partials.datalist')
