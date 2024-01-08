@@ -24,6 +24,8 @@
             </div>
             @endif
             <input @if($readonly) readonly @endif list="{{$id}}-list" {!! $attributes->merge(['class' => 'form-control '.$error_class]) !!}>
+            @include('form::partials.footer')
+
             @if($datalist)
                 <datalist id="{{$id}}-list">
                     @include('form::partials.datalist')
