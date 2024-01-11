@@ -7,6 +7,7 @@
     'refresh'=>false,
     'change'=>false,
     'options'=>null,
+    'value'=>null,
     ])
 @php
     if ($multiple) {
@@ -53,9 +54,9 @@
             setFirstOptionActive: true,
             placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
             onChange: function (value) {
-            @if($attributes->wire('model')->value())
+                @if($attributes->wire('model')->value())
                 @this.
-            set('{{$model}}', value);
+                set('{{$model}}', value);
                 @endif
             },
         });
