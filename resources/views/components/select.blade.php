@@ -1,13 +1,13 @@
 @props([
-    'label'=>null,
-    'placeholder' => null,
-    'multiple'=>false,
-    'allowClear'=>false,
-    'prepend'=>null,
-    'refresh'=>false,
-    'change'=>false,
-    'options'=>null,
-    'value'=>null,
+'label'=>null,
+'placeholder' => null,
+'multiple'=>false,
+'allowClear'=>false,
+'prepend'=>null,
+'refresh'=>false,
+'change'=>false,
+'options'=>null,
+'value'=>null,
     ])
 @php
     if ($multiple) {
