@@ -6,7 +6,7 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/smirltech/laravel-form/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/smirltech/laravel-form/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/smirltech/laravel-form.svg?style=flat-square)](https://packagist.org/packages/smirltech/laravel-form)
 
-This is a package that provides a bunch of form components ready to use in your Laravel application.
+This is a package that provides a bunch of form components ready to use in your Laravel application and provides the best hanlding for frome validation errors.
 
 Originally created for [Livewire](https://laravel-livewire.com) projects, but can be used in any Laravel project.
 
