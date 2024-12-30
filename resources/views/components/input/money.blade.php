@@ -1,2 +1,2 @@
 @props(['currency' => null])
-<x-form::input prepend="{{ $currency }}" {{ $attributes }} />
+<x-form::input.numeric prepend="{{ $currency }}" {{ $attributes }} />

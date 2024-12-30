@@ -7,6 +7,7 @@
     'theme'=>'primary',
     'link'=>null,
     'size'=>'md',
+    'blank'=>false,
     'sm'=>false,
     ])
 
@@ -22,16 +23,20 @@
 @endif
 
 @if($link)
-    <a href="{{$link}}">
+    <a href="{{$link}}"
+       type="{{$type}}" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
+        @if($icon)
+            <i class="fa fa-{{$icon}}"></i>
         @endif
-        <button
-            type="{{$type}}" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
-            @if($icon)
-                <i wire:loading.remove wire:target="{{$target}}" class="fa fa-{{$icon}}"></i>
-            @endif
-            <span wire:loading.remove wire:target="{{$target}}">{{ $label??$slot }}</span>
-            <x-form::loading target="{{$target}}"/>
-        </button>
-        @if($link)
+        <span>{{ $label??$slot }}</span>
     </a>
+@else
+    <button
+        type="{{$type}}" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
+        @if($icon)
+            <i wire:loading.remove wire:target="{{$target}}" class="fa fa-{{$icon}}"></i>
+        @endif
+        <span wire:loading.remove wire:target="{{$target}}">{{ $label??$slot }}</span>
+        <x-form::loading target="{{$target}}"/>
+    </button>
 @endif

@@ -1,4 +1,4 @@
-<x-form::input-file
+<x-form::input.file
     accept=".xlsx"
     icon="file-excel"
     {{ $attributes }}

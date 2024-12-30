@@ -1,5 +1,4 @@
 <x-form::invalid-feedback>
-    {{$error}}
+        {{$error}}
 </x-form::invalid-feedback>
-
 
