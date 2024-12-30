@@ -39,28 +39,28 @@
 </select>
 </span>
         @include('form::partials.footer')
-</div>
 
-<!-- Start Selectize  #{{$id}} -->
-<script>
-    $(function () {
-        $("#{{$id}}").selectize({
-            plugins: ["restore_on_backspace", "clear_button"],
-            delimiter: " - ",
-            persist: false,
-            hideSelected: true,
-            closeAfterSelect: true,
-            selectOnTab: true,
-            setFirstOptionActive: true,
-            placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
-            onChange: function (value) {
-                @if($attributes->wire('model')->value())
-                @this.
-                set('{{$model}}', value);
-                @endif
-            },
-        });
-    });
-</script>
-<!-- End Selectize  #{{$id}} -->
-@endif
+        <!-- Start Selectize  #{{$id}} -->
+        <script>
+            $(function () {
+                $("#{{$id}}").selectize({
+                    plugins: ["restore_on_backspace", "clear_button"],
+                    delimiter: " - ",
+                    persist: false,
+                    hideSelected: true,
+                    closeAfterSelect: true,
+                    selectOnTab: true,
+                    setFirstOptionActive: true,
+                    placeholder: '{{$placeholder ?? 'Choisir '.$label ?? ''}}',
+                    onChange: function (value) {
+                        @if($attributes->wire('model')->value())
+                        @this.
+                        set('{{$model}}', value);
+                        @endif
+                    },
+                });
+            });
+        </script>
+        <!-- End Selectize  #{{$id}} -->
+    @endif
+</div>
