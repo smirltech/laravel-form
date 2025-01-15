@@ -34,9 +34,9 @@
     <button
         type="{{$type}}" {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge(['class' => "btn btn-{$theme} btn-{$size}"]) !!}>
         @if($icon)
-            <i wire:loading.remove wire:target="{{$target}}" class="fa fa-{{$icon}}"></i>
+            <i {{--wire:loading.remove wire:target="{{$target}}" --}} class="fa fa-{{$icon}}"></i>
         @endif
-        <span wire:loading.remove wire:target="{{$target}}">{{ $label??$slot }}</span>
-        <x-form::loading target="{{$target}}"/>
+        <span wire:loading.remove {{--wire:target="{{$target}}"--}}>{{ $label??$slot }}</span>
+        {{--  <x-form::loading target="{{$target}}"/>--}}
     </button>
 @endif
