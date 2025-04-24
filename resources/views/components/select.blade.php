@@ -27,7 +27,7 @@
     @include('form::partials.label')
     @if($refresh or $change)
         <select {!! $attributes->merge(['class' => 'form-control form-select '.$error_class]) !!}>
-            <option disabled value=null>{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
+            <option value="">{{$placeholder ?? 'Choisir '.$label ?? ''}}</option>
             @include('form::partials.select-options')
         </select>
         @include('form::partials.footer')
